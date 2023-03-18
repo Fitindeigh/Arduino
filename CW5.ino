@@ -31,7 +31,11 @@ void loop()
   random_time = random(1000, 10000+1);   // random(1, 5+1); (1,5)
   delay(random_time);
   
-  tone(BUZZ_PIN, 2000, 100);  // tone(пин динамика, частота (Гц), продолжительность (миллисекундах))
+  digitaWrite(BUZZ_PIN, HIGH);
+  delay(10);
+  digitaWrite(BUZZ_PIN, LOW);
+  
+  //tone(BUZZ_PIN, 2000, 100);  // tone(пин динамика, частота (Гц), продолжительность (миллисекундах))
   
   while (1){
     
@@ -61,8 +65,9 @@ void loop()
     if (Button_press_1) {
       Button_press_1 = false;
       digitalWrite(LED_PIN_1, HIGH);
-      tone(BUZZ_PIN, 1000, 500);
+      digitaWrite(BUZZ_PIN, HIGH);
       delay(1000);
+      digitaWrite(BUZZ_PIN, LOW);
       digitalWrite(LED_PIN_1, LOW);
       break;    
       }
@@ -70,8 +75,9 @@ void loop()
     if (Button_press_2) {
       Button_press_2 = false;
       digitalWrite(LED_PIN_2, HIGH);
-      tone(BUZZ_PIN, 1000, 500);
+      digitaWrite(BUZZ_PIN, HIGH);
       delay(1000);
+      digitaWrite(BUZZ_PIN, LOW);
       digitalWrite(LED_PIN_2, LOW);
       break;    
       }
